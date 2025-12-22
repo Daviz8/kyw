@@ -15,12 +15,12 @@ export default function Footer() {
         <div className="gap-x-10 space-y-12 lg:grid grid-cols-6">
           <div className="col-span-2 pr-12">
             <img
-              className="w-60 hidden lg:inline-block rounded-full"
+              className="w-32 hidden lg:inline-block rounded-full"
               src="/images/kyw.png"
               alt="logo"
             />
             <img
-              className="max-w-[100px] w-full lg:hidden rounded-full"
+              className="max-w-[60px] w-full lg:hidden rounded-full"
               src="/images/kyw.png"
               alt="logo"
             />

@@ -15,6 +15,7 @@ const lato = Lato({
    variable: "--font-lat"
 })
 
+
 const calligraffitti = Calligraffitti({
   subsets: ["latin"],
   variable: "--font-cal",

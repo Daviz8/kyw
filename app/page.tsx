@@ -4,7 +4,7 @@ import Home from "./home/home";
 
 export default function HomeLayout(){
     return(
-        <main className="bg-[rgba(11,13,21,1)]">
+        <main className="bg-[]">
         <Navbar/>
         <Home/>
         <Footer/>

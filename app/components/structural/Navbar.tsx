@@ -17,7 +17,7 @@ export default function Navbar() {
         border-b border-white/20 dark:border-[#FDFFF5]
         shadow-lg sticky z-50 top-0 w-full">
         <nav className="max-w-[1200px] px-4 mx-auto flex h-[104px] items-center">
-          <img src="/images/kyw-logo.png" alt="logo" className="w-32 h-20 hidden md:block" />
+          <img src="/images/kyw-logo.png" alt="logo" className="w-44 h-20 hidden md:block" />
 
           <div className="hidden lg:flex gap-x-10 items-center justify-center mx-auto">
             {navLinks.map((item) => (
