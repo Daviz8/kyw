@@ -51,7 +51,7 @@ export default function Home() {
 
 
  <section className=" text-white py-20 px-4 md:px-16 bg-[#008080]">
-<div className="relative w-full py-12 md:py-20 bg-[#32CD32] rounded-3xl">
+<div className="relative w-full py-12 md:py-20 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20">
   <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       
@@ -67,7 +67,7 @@ export default function Home() {
 
       {/* Text Section */}
       <div className="flex flex-col">
-        <h3 className="text-[40px] mb-10 text-black leading-[100%] italic font-play-italic font-black text-center">
+        <h3 className="text-[40px] mb-10 text-[#15d015] border-amber-50 leading-[100%] italic font-play-italic font-black text-center">
           WHO ARE WE ?
         </h3>
         
@@ -85,7 +85,7 @@ a touch of class.
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-100">
-<h3 className="text-[40px] text-black italic font-play-italic font-bold text-center mb-10"> Our Mission: </h3>
+<h3 className="text-[40px] text-[#15d015] italic font-play-italic font-bold text-center mb-10 outline-amber-50"> Our Mission: </h3>
           <p className="text-xl font-semibold uppercase tracking-widest text-white font-pop">
              We believe in the transformative power of mental
 Wellness, ourmission is to cultivate acultureof

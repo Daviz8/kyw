@@ -4,7 +4,7 @@ import Home from "./home/home";
 
 export default function HomeLayout(){
     return(
-        <main className="bg-[]">
+        <main>
         <Navbar/>
         <Home/>
         <Footer/>

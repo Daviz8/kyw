@@ -12,6 +12,7 @@ export const footerLinks = [
     subLinks: [
       { url: "/contact", name: "Help Center" },
       { url: "/contact", name: "Contact Us" },
+      { url: "/contact",  name: " Email Us @kywwellnessplace@gmail.com" },
     ],
   },
 ];
