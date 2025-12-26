@@ -12,7 +12,7 @@ export default function Home() {
 
     {/* TEXT */}
     <div className="w-full md:w-1/2 text-center md:text-left">
-      <h1 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#008080] leading-snug text-left ">
+      <h1 className="text-2xl sm:text-3xl md:text-[40px] text-[#008080] leading-snug text-left italic font-play-italic font-semibold">
       ...RECHARGE, <br />
       REFRESH, <br />
         RENEW, <br />
@@ -20,13 +20,13 @@ export default function Home() {
       </h1>
 
       {/* Mobile text */}
-      <p className=" text-black md:hidden my-10 text-left italic font-play-italic font-semibold">
+      <p className=" text-[#009688]  font-semibold md:hidden my-10 text-left font-lat ">
         Connect with a licensed therapist anytime, anywhere <br />
-         — from the comfort of your space.
+         from the comfort of your space.
       </p>
 
       {/* Desktop text */}
-      <p className="mt-6 text-lg md:text-xl text-[#009688]  hidden md:block   italic font-play-italic  font-semibold">
+      <p className="mt-6 text-lg md:text-xl text-[#009688]  hidden md:block font-lat font-semibold">
         Connect with a licensed therapist from the comfort of your own
         space. Break down barriers to mental health care and embark on a
         journey towards well-being, anytime, anywhere.

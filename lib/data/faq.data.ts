@@ -1,13 +1,13 @@
 export const faqs = [
 		{
-			question: "What should I expect during the first consultation?",
+			question: "Are online sessions as effective as in-person therapy?",
 			answer:
-				"Reassure the user that the first meeting is an intake session a chance to share their story, discuss goals, and see if the psychologist-client fit feels right",
+				"Yes. Tele-health provides a comfortable, private environment that is scientifically proven to be effective for both pediatric play-based observation and adult clinical talk therapy.",
 		},
 		{
-			question: "Is online therapy as effective as in-person sessions?",
+			question: "What services do you provide for children vs. adults?",
 			answer:
-				"Address the convenience and comfort of meeting from home, noting that research shows tele-health is highly effective for both children and adults.",
+				"I offer developmental assessments and behavioral therapy for children, alongside clinical counseling for adults facing anxiety, depression, or life transitions.",
 		},
 		{
 			question: "What is the difference between Child Psychology and Clinical Mental Health Counseling?",
