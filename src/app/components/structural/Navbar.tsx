@@ -116,7 +116,7 @@ export default function Navbar() {
         <header className="flex items-center justify-between">
           <Link href="/" onClick={() => setOpen(false)}>
             <img
-              src="/images/kyw-logo.png"
+              src="/images/kyw-logo.webp"
               alt="KYW Wellness"
               className="h-20 w-44 object-contain"
             />
