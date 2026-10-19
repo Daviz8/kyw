@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { OAuth2Client } from "google-auth-library";
 import { connectDB } from "@/src/app/lib/db";
@@ -5,8 +6,6 @@ import { UserModel } from "@/src/app/lib/models";
 import { signToken } from "@/src/app/lib/auth";
 
 export const runtime = "nodejs";
-
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 function isAdminEmail(email: string) {
   const adminEmails = String(process.env.ADMIN_EMAILS || "")
@@ -19,6 +18,18 @@ function isAdminEmail(email: string) {
 
 export async function POST(request: NextRequest) {
   try {
+    // 1. Verify env vars exist
+    if (!process.env.GOOGLE_CLIENT_ID) {
+      console.error("GOOGLE_CLIENT_ID is not set");
+      return NextResponse.json(
+        { success: false, message: "Server configuration error" },
+        { status: 500 }
+      );
+    }
+
+    // 2. Initialize client inside the handler
+    const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
     await connectDB();
 
     const body = await request.json();
@@ -31,7 +42,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify Google ID token
+    // 3. Verify Google ID token
     const ticket = await client.verifyIdToken({
       idToken: credential,
       audience: process.env.GOOGLE_CLIENT_ID,
@@ -62,7 +73,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Admin restriction
+    // 4. Admin restriction
     if (!isAdminEmail(email)) {
       return NextResponse.json(
         {
@@ -73,7 +84,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create / update user
+    // 5. Create / update user
     const user = await UserModel.findOneAndUpdate(
       { email },
       {
@@ -85,10 +96,17 @@ export async function POST(request: NextRequest) {
           role: "admin",
         },
       },
-      { new: true, upsert: true }
+      { new: true, upsert: true, returnDocument: "after" }
     );
 
-    // Sign JWT
+    if (!user) {
+      return NextResponse.json(
+        { success: false, message: "User could not be created" },
+        { status: 500 }
+      );
+    }
+
+    // 6. Sign JWT
     const token = signToken({
       id: user._id.toString(),
       email: user.email,
@@ -96,7 +114,7 @@ export async function POST(request: NextRequest) {
       role: "admin",
     });
 
-    // Build response
+    // 7. Build response
     const response = NextResponse.json({
       success: true,
       message: "Admin login successful",
@@ -108,17 +126,16 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Set cookie (IMPORTANT: must be on response)
+    // 8. Set cookie on the response
     response.cookies.set("kyw_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7,
+      maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
     return response;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("GOOGLE_LOGIN_ERROR:", error);
 

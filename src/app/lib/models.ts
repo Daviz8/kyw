@@ -104,6 +104,57 @@ const SessionRequestSchema = new Schema(
   { timestamps: true }
 );
 
+
+const DonationSchema = new Schema(
+  {
+     email: {
+      type: String,
+      required: true,
+      trim: true,
+      lowercase: true,
+    },
+
+
+    amount: {
+      type: Number,
+      required: true,
+      min: 1,
+    },
+
+    currency: {
+      type: String,
+      default: "NGN",
+      required: true,
+    },
+
+    reference: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true,
+    },
+
+    paymentStatus: {
+      type: String,
+      enum: ["pending", "paid", "failed"],
+      default: "pending",
+      required: true,
+    },
+
+    paidAt: {
+      type: Date,
+      default: null,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const DonationModel =
+  models.Donation || model("Donation", DonationSchema);
+
+
 export const UserModel =
   models.KYWUser || model("KYWUser", UserSchema);
 

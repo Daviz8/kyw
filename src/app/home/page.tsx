@@ -1,218 +1,362 @@
-/* eslint-disable react/no-unescaped-entities */
-"use client"
+"use client";
+
+
+
+
+import { motion, useReducedMotion } from "framer-motion";
 import LazySection from "../components/LazySection";
+
 import { Suspense } from "react";
 
 
 
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
 
-  return(
-        <>
+  return (
 
-      <LazySection>
-        <Suspense fallback={<div>Loading...</div>}>
-<section
-  className="w-full min-h-screen bg-cover bg-center"
-  style={{ backgroundImage: "url('/images/kyw-wave-bg.webp')" }}
->
-  <div 
-    className="max-w-7xl mx-auto px-4 py-12 flex flex-col items-center md:flex-row md:justify-between gap-10"
-  >
+    <LazySection>
 
-    {/* TEXT */}
-    < div className="w-full md:w-1/2 text-center md:text-left "
-    >
-      <h1 className="text-2xl sm:text-3xl md:text-[40px] text-[#008080] leading-snug text-left font-play-italic font-semibold motion-preset-slide-right-lg motion-duration-1000 motion-delay-100 motion-ease-bounce">
-      ...RECHARGE, <br />
-      REFRESH, <br />
-        RENEW, <br />
-        FOR A BETTER YOU. <br />
-      </h1>
+      <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
 
-      {/* Mobile text */}
-      <p className=" text-[#009688]  font-semibold md:hidden my-10 text-left font-lat ">
-        Connect with a licensed therapist anytime, anywhere <br />
-         from the comfort of your space.
-      </p>
+        <main className="w-full overflow-x-hidden">
 
-      {/* Desktop text */}
-      <p className="mt-6 text-lg md:text-xl text-[#009688]  hidden md:block font-lat font-semibold">
-        Connect with a licensed therapist from the comfort of your own
-        space. Break down barriers to mental health care and embark on a
-        journey towards well-being, anytime, anywhere.
-      </p>
+          {/* HERO SECTION \*/}
 
-<a href="/book-a-session"> 
-      <button className="mt-6 px-6 py-3 rounded-full bg-[#009688] text-white font-bold sm:w-auto hover:bg-[#32CD32] animate-bounce">
-        Book a Session
-      </button>
-      </a>
-    </div>
+          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative w-full min-h-[650px] md:min-h-[650px] lg:min-h-[700px] bg-white md:bg-[url('/images/welcome.webp')] md:bg-no-repeat md:bg-[position:right_center] md:bg-[length:55%_auto]">
 
-    {/* IMAGE */}
-    <div className="w-full md:w-1/2 flex justify-center my-36 md:my-0">
-      <img
-        src="/images/hero-image.webp"
-        alt="Hero"
-        className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto rounded-2xl shadow-xl  "
-      />
-    </div>
+            <div className="mx-auto flex min-h-[650px] max-w-7xl flex-col justify-center gap-8 px-5 py-16 sm:px-8 md:min-h-[650px] md:flex-row md:items-center md:justify-start md:py-20 lg:min-h-[700px] lg:px-10">
 
-  </div>
-</section>
+              <div className="w-full text-center md:w-[52%] md:text-left lg:w-1/2">
+
+                <h1 className="font-fraunces text-4xl font-bold leading-tight text-[#008080] sm:text-5xl md:text-[38px] lg:text-[44px] xl:text-5xl motion-preset-slide-right-lg motion-duration-1000 motion-delay-100 motion-ease-bounce">
+
+                  RECHARGE,
+
+                  <br />
+
+                  REFRESH,
+
+                  <br />
+
+                  RENEW,
+
+                  <br />
+
+                  FOR A BETTER YOU.
+
+                </h1>
 
 
- <section className="text-white py-20 px-4 md:px-16 bg-[#008080] ">
-<div className="relative w-full py-12 md:py-20 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 motion-preset-fade motion-duration-10000  ">
-  <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      
-      {/* Image Section */}
-      <div className="relative h-max md:h-162.5 w-full overflow-hidden rounded-2xl shadow-xl">
-        <img 
-          src="/images/belle.webp" 
-          alt="kyw convener"
-          className="w-full h-full md:h-fit md:w-fit"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
-      </div>
 
-      {/* Text Section */}
-      <div className="flex flex-col">
-        <h3 className="text-[40px] mb-10 text-white border-amber-50 leading-[100%]  font-play-italic font-black text-center">
-          WHO ARE WE ?
-        </h3>
-        
-        <div className="space-y-6 text-gray-700 leading-relaxed md:text-lg font-medium">
-          <p className=" md:text-xl text-xl  text-white font-semibold font-pop">
-KYW Wellness Place is a safe haven
-that focuses on mental, emotional and physical transformation.
-Whether you are struggling with navigating life's
-challenges, managing your mental health concerns
-and addictions, seeking clarity of purpose or aiming at
-building astrong and healthy lifestyle for the future. <br />
-KYW Wellness Place is here to ignite your inner spark with
-a touch of class.
-          </p>
-        </div>
+                <p className="my-7 text-left font-lat text-base font-semibold leading-relaxed text-[#009688] sm:text-lg md:hidden">
 
-        <div className="mt-8 pt-6 border-t border-gray-100 ">
-<h3 className="text-[40px] text-white  font-play-italic font-bold text-center mb-10 outline-amber-50"> Our Mission: </h3>
-          <p className="text-xl font-semibold uppercase tracking-widest text-white font-pop">
-             We believe in the transformative power of mental
-Wellness, our mission is to cultivate a culture of
-compassion and understanding around mental, physical
-and emotional health, encouraging individuals to
-seek helpand support each other in building resilient
-Communities.
-          </p>
-        </div>
-      </div>
+                  Connect with a licensed therapist anytime, anywhere from the
 
-    </div>
-  </div>
-</div>
+                  comfort of your space.
+
+                </p>
 
 
-</section>
 
-<section className=" text-white py-20 px-4 md:px-16 bg-[#008080] ">
-        <em>
-          {" "}
-          <h2 className="text-[40px] md:text-8xl h-white py-20 font-bold text-center font-play-italic">
-            {" "}
-            Core Values{" "}
-          </h2>{" "}
-        </em>
+                <p className="mt-6 hidden max-w-xl font-lat text-lg font-semibold leading-relaxed text-[#009688] md:block lg:text-xl">
 
-<div className="flex flex-col items-center gap-8 md:flex-row md:flex-wrap md:justify-center md:gap-12 mb-20  motion-preset-fade motion-duration-5000">
-  <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/growth.webp"
-      alt="icons"
-    /> 
-    <h6 className="text-white font-bold text-2xl mt-4 "> Growth </h6>
-  </div>
+                  Connect with a licensed therapist from the comfort of your
 
-  <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/confidential.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4"> Confidentiality </h6>
-  </div>
+                  own space. Break down barriers to mental health care and
 
-  <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/help.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4"> Care </h6>
-    
-  </div>
+                  embark on a journey towards well-being, anytime, anywhere.
 
-  <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/empathy.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4"> Empathy </h6>
-  </div>
+                </p>
 
-  <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/partners.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4"> Collaboration </h6>
-  </div>
-    <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/transformation.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4">Transformation</h6>
-  </div>
-    <div className="flex flex-col items-center text-center md:w-1/4">
-    <img
-      className="w-[157px] h-[156px] rounded-full  hover:scale-105 transition-transform duration-300"
-      src="/images/social-services.webp"
-      alt="icons"
-    />
-    <h6 className="text-white font-bold text-2xl mt-4">Support</h6>
-  </div>
-</div>
-  
-</section>
+                     <motion.a whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} href="/book-a-session">
+
+                <motion.button whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} animate={shouldReduceMotion ? undefined : { y: [0, -3, 0] }} transition={{ y: { duration: 2.4, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 0.2 } }}
+
+                  className="mt-4 inline-flex items-center justify-center rounded-full bg-[#009688] px-7 py-3.5 font-bold text-white transition-colors duration-300 hover:bg-[#32CD32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#008080] md:mt-8 motion-translate-y-loop-50/mirror"
+
+                >
+
+                  Book a Session
+
+                </motion.button>
+
+                 </motion.a>
+
+              </div>
+
+            </div>
+
+          </motion.section>
 
 
-<section
-        className="relative w-full h-[80vh] md:w-[1440px] md:h-[817px] flex items-center justify-center text-center bg-cover bg-center md:p-44 "
-        style={{ backgroundImage: "url('/images/join-us.webp')" }}
-      >
-        <div className="absolute inset-0 bg-black/50 w-fit h-fit"></div>
-        <div className="relative max-w-3xl mx-auto text-white px-4 mb-24 md:mb-0">
-          <h1 className="text-[30px] md:text-[40px] font-extrabold mb-6 font-play relative top-52 md:top-0">
-        Partner With Us
-          </h1>
-          <p className="text-lg md:text-lg mb-8 relative top-52 md:top-0">
-Your partnership, collaboration and support  <br className="hidden md:block" /> 
-will enable us to train,develop and empower <br className="hidden md:block" />
-more youths,women, men, families & the society.
-          </p>
-          <br /><br />
-        </div>
-      </section>
-        </Suspense>
-      </LazySection>
 
-        </>
-    )
+          {/* ABOUT US SECTION \*/}
+
+          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#008080] px-4 py-12 text-white sm:px-6 md:px-10 md:py-16 lg:px-16">
+
+            <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/20 bg-white/10 py-8 shadow-sm backdrop-blur-md sm:py-10 md:py-14 lg:py-16">
+
+              <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 px-5 sm:px-8 md:gap-10 lg:grid-cols-2 lg:gap-14 lg:px-12">
+
+                {/* Image \*/}
+
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl sm:aspect-[5/4] lg:aspect-[4/5]">
+
+                  <img
+
+                    src="/images/belle.webp"
+
+                    alt="KYW Wellness Place convener"
+
+                    className="absolute inset-0 h-full w-full object-contain md:object-fill"
+
+                    loading="lazy"
+
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+                </div>
+
+
+
+                {/* Text \*/}
+
+                <div className="flex min-w-0 flex-col">
+
+                  <h2 className="mb-7 text-center font-fraunces text-3xl font-black leading-tight text-white sm:text-4xl md:mb-9 lg:text-[40px]">
+
+                    WHO ARE WE?
+
+                  </h2>
+
+
+
+                  <div className="space-y-6">
+
+                    <p className="font-pop text-base font-semibold leading-relaxed text-white sm:text-lg md:text-xl">
+
+                      KYW Wellness Place is a safe haven that focuses on
+
+                      mental, emotional and physical transformation. Whether
+
+                      you are struggling with navigating life's
+
+                      challenges, managing your mental health concerns and
+
+                      addictions, seeking clarity of purpose or aiming at
+
+                      building a strong and healthy lifestyle for the future,
+
+                      KYW Wellness Place is here to ignite your inner spark
+
+                      with a touch of class.
+
+                    </p>
+
+                  </div>
+
+
+
+                  <div className="mt-8 border-t border-white/30 pt-7 sm:mt-10 sm:pt-8">
+
+                    <h3 className="mb-6 text-center font-fraunces text-3xl font-bold text-white sm:text-4xl">
+
+                      Our Mission
+
+                    </h3>
+
+
+
+                    <p className="font-pop text-base font-semibold leading-relaxed text-white sm:text-lg md:text-xl">
+
+                      We believe in the transformative power of mental
+
+                      wellness. Our mission is to cultivate a culture of
+
+                      compassion and understanding around mental, physical
+
+                      and emotional health, encouraging individuals to seek
+
+                      help and support each other in building resilient
+
+                      communities.
+
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.section>
+
+
+
+          {/* CORE VALUES SECTION \*/}
+
+          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#008080] px-4 py-12 text-white sm:px-6 md:px-10 md:py-20 lg:px-16">
+
+            <h2 className="mb-12 text-center font-fraunces text-4xl font-bold sm:mb-16 sm:text-5xl md:mb-20 md:text-7xl lg:text-8xl">
+
+              Core Values
+
+            </h2>
+
+
+
+            <div className="mx-auto grid max-w-6xl grid-cols-2 items-start justify-items-center gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-14 motion-preset-fade motion-duration-1000">
+
+              {[
+
+                { title: "Growth", image: "/images/growth.webp" },
+
+                {
+
+                  title: "Confidentiality",
+
+                  image: "/images/confidential.webp",
+
+                },
+
+                { title: "Care", image: "/images/help.webp" },
+
+                { title: "Empathy", image: "/images/empathy.webp" },
+
+                { title: "Collaboration", image: "/images/partners.webp" },
+
+                {
+
+                  title: "Transformation",
+
+                  image: "/images/transformation.webp",
+
+                },
+
+                {
+
+                  title: "Support",
+
+                  image: "/images/social-services.webp",
+
+                },
+
+              ].map((value) => (
+
+                <div
+
+                  key={value.title}
+
+                  className="flex w-full min-w-0 flex-col items-center text-center"
+
+                >
+
+                  <img
+
+                    src={value.image}
+
+                    alt=""
+
+                    loading="lazy"
+
+                    className="aspect-square w-24 rounded-full object-cover transition-transform duration-300 hover:scale-105 sm:w-28 md:w-36 lg:w-[157px]"
+
+                  />
+
+                  <h3 className="mt-4 max-w-full break-words text-lg font-bold text-white sm:text-xl md:text-2xl">
+
+                    {value.title}
+
+                  </h3>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </motion.section>
+
+
+
+          {/* PARTNER WITH US SECTION \*/}
+
+          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }}
+
+            className="relative flex min-h-[520px] w-full items-center justify-center overflow-hidden bg-cover bg-center px-5 py-16 text-center sm:min-h-[580px] sm:px-8 md:min-h-[680px] md:px-12 lg:min-h-[760px]"
+
+            style={{
+
+              backgroundImage: "url('/images/join-us.webp')",
+
+            }}
+
+          >
+
+            {/* Overlay \*/}
+
+            <div
+
+              className="absolute inset-0 bg-black/50"
+
+              aria-hidden="true"
+
+            />
+
+
+
+            <div className="relative z-10 mx-auto w-full max-w-3xl text-white">
+
+              <h2 className="mb-6 font-fraunces text-3xl font-extrabold leading-tight sm:text-4xl md:text-[40px]">
+
+                Partner With Us
+
+              </h2>
+
+
+
+              <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+
+                Your partnership, collaboration and support will enable us to
+
+                train, develop and empower more youths, women, men, families
+
+                and society.
+
+              </p>
+
+
+
+                       <motion.a whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} href="/book-a-session">
+
+                <motion.button whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} animate={shouldReduceMotion ? undefined : { y: [0, -3, 0] }} transition={{ y: { duration: 2.4, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 0.2 } }}
+
+                  className="mt-4 md:inline-flex hidden items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-[#009688] hover:text-white transition-colors duration-300 hover:bg-[#32CD32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#008080] md:mt-8 motion-translate-y-loop-50/mirror"
+
+                >
+
+              💚
+
+              Donate 
+
+                </motion.button>
+
+                 </motion.a>
+
+            </div>
+
+          </motion.section>
+
+        </main>
+
+      </Suspense>
+
+    </LazySection>
+
+  );
+
 }

@@ -144,6 +144,40 @@ export default function BookSessionPage() {
     <Navbar />
     <main className="min-h-screen bg-[#f4fffb] px-4 py-10">
         <MembershipPricing/>
+
+        {/* Already Paid Alert */}
+<section className="mx-auto mb-8 max-w-5xl">
+  <div className="relative overflow-hidden rounded-3xl border border-[#008080]/20 bg-white p-6 shadow-lg animate-[fadeSlideIn_0.7s_ease-out] md:flex md:items-center md:justify-between md:gap-6">
+    <div className="absolute left-0 top-0 h-full w-1.5 bg-[#32CD32]" />
+
+    <div className="flex items-start gap-4">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#e8fff0] text-2xl">
+        ✓
+      </div>
+
+      <div>
+        <h2 className="text-xl font-black text-[#008080]">
+          Already Paid For A Physical Therapy Session?
+        </h2>
+
+        <p className="mt-2 max-w-xl text-sm leading-6 text-gray-600">
+          Great! If you have already made your payment, please fill in your
+          details so Dr Christabel Juan Augustine can review your information
+          and attend to you soon.
+        </p>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      onClick={() => router.push("/physical-session")}
+      className="mt-5 w-full shrink-0 rounded-full bg-[#008080] px-6 py-3 font-bold text-white transition duration-300 hover:bg-[#32CD32] hover:text-[#003b3b] hover:shadow-lg md:mt-0 md:w-auto"
+    >
+      Complete Your Details →
+    </button>
+  </div>
+</section>
+
       <section className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-xl">
         <div className="bg-[#008080] p-8 text-white">
           <h1 className="text-4xl font-black">Book a Session</h1>
@@ -178,6 +212,7 @@ export default function BookSessionPage() {
               <Input
                 label="Phone Number"
                 required
+                type="tel"
                 value={form.phone}
                 onChange={(value) => updateField("phone", value)}
               />
@@ -329,6 +364,7 @@ export default function BookSessionPage() {
               <Input
                 label="Phone"
                 value={form.emergencyPhone}
+                type="tel"
                 onChange={(value) => updateField("emergencyPhone", value)}
               />
 
