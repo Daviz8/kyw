@@ -77,8 +77,8 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({id, imageUrl , title 
 };
 
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-all duration-9000 hover:shadow-2xl motion-rotate-in-90 motion-scale-in-0 ">
-      <img loading="lazy"  className="w-full h-48 object-cover" src={imageUrl} alt={title} />
+    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-all duration-1000 hover:shadow-2xl motion-rotate-in-90 ">
+      <img loading="eager"  className="w-full h-48 object-cover" src={imageUrl} alt={title} />
       <div className="p-6">
         <p className="text-sm text-gray-500">{date} • {duration}</p>
         <h2 className="font-bold text-xl mb-2 text-gray-900 mt-2">{title}</h2>

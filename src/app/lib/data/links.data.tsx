@@ -16,6 +16,7 @@ export const navLinks: AppLink[] = [
   { name: "Home", url: "/", slug: "home" },
   { name: "About", url: "/about", slug: "about" },
   { name: "Book a Session", url: "/book-a-session", slug: "book" },
+  { name: "Donate", url: "/donate", slug: "donate" },
   { name: "Blog", url: "/blog", slug: "blog" },
   { name: "Contact Us", url: "/contact", slug: "contact" },
 ];
@@ -26,6 +27,7 @@ export const footerLinks = [
     subLinks: [
       { url: "/book-a-session", name: "Start Intake Form", slug: "book" },
       { url: "/contact", name: "Ask a Question", slug: "question" },
+
     ],
   },
   {
@@ -33,7 +35,7 @@ export const footerLinks = [
     subLinks: [
       { url: "/contact", name: "Help Center", slug: "help" },
       { url: "/contact", name: "Contact Us", slug: "contact" },
-      { url: "/contact", name: "Email Us", slug: "email" },
+      { url: "/donate", name: "Donate", slug: "donate" },
     ],
   },
   {

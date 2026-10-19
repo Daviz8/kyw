@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
@@ -46,7 +47,6 @@ export default function ContactForm() {
         Whether you are seeking specialized developmental support for your
         child or professional counseling for your own mental well-being, I am
         here to help. We are open to new connections and creative possibilities.
-        // eslint-disable-next-line react/no-unescaped-entities
         We'd love to hear from you.
       </p>
 

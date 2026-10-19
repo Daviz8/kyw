@@ -1,155 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hurricane&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --font-pop: var(--font-pop);
+  --font-play: var(--font-play);
+  --font-fraunces: var(--font-fraunces);
+  --font-cal: var(--font-cal);
+}
 
-button{
+
+
+button {
   cursor: pointer;
 }
 
-
 body {
-  background-color:#008080;
+  background-color: #008080;
 }
 
-@theme inline {
-  --font-pop: var(--font-pop);
-  --font-lato: var(--font-lato);
-  --font-mont: var(--font-montserrat);
-
-}
-
-
-.h1-hero{
-font-family: var(--font-lat);
-}
- 
-
-.font-play-italic{
-   font-family: "Playfair Display", serif;
+/* 
+  2. FIXED CUSTOM FONT CLASSES
+  Uses the Next.js CSS variables instead of hardcoding font names.
+*/
+.font-play-italic {
+   font-family: var(--font-play-italic), serif;
    font-style: italic;
 }
- 
 
-/*SERVICES CARD DESIGN*/
-
-.card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 320px;
-  border-radius: 24px;
-  line-height: 1.6;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+.font-playfair {
+  font-family: var(--font-play), serif;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 36px;
-  border-radius: 22px;
-  color: black;
-  overflow: hidden;
-  background: #ffff;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+.font-fraunces {
+  font-family: var(--font-fraunces), serif;
 }
 
-.content::before {
-  position: absolute;
-  content: "";
-  top: -4%;
-  left: 50%;
-  width: 90%;
-  height: 90%;
-  transform: translate(-50%);
-  background:  #32CD32;
-  z-index: -1;
-  transform-origin: bottom;
-
-  border-radius: inherit;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+.font-pop {
+  font-family: var(--font-pop), sans-serif;
 }
 
-.card:hover h1{
-  color: #32CD32;
-}
-
-
-.content::after {
-  position: absolute;
-  content: "";
-  top: -8%;
-  left: 50%;
-  width: 80%;
-  height: 80%;
-  transform: translate(-50%);
-  background:  #95f395;
-  z-index: -2;
-  transform-origin: bottom;
-  border-radius: inherit;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.content svg {
-  width: 48px;
-  height: 48px;
-}
-
-.content .para {
-  z-index: 1;
-  opacity: 1;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.content .link {
-  z-index: 1;
-  color: #fea000;
-  text-decoration: none;
-  font-family: inherit;
-  font-size: 16px;
-  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.content .link:hover {
-  text-decoration: underline;
-}
-
-.card:hover {
-  transform: translate(0px, -16px);
-}
-
-.card:hover .content::before {
-  rotate: -8deg;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card:hover .content::after {
-  rotate: 8deg;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-/*BLOG PAGE*/
-
-.font-inter{
+.font-inter {
   font-family: "Inter", sans-serif;
-  
 }
 
-.font-heading-text{
+.font-heading-text {
   font-family: "UnifrakturMaguntia", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
+
+
+/* =========================================
+   BLOG PAGE / ANIMATIONS
+   ========================================= */
 .delayed-section {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
@@ -159,5 +62,29 @@ font-family: var(--font-lat);
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

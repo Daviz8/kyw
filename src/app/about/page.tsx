@@ -1,194 +1,423 @@
-/* eslint-disable react/no-unescaped-entities */
-import { type FC } from "react";
+"use client";
+
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "../components/structural";
 
-export default function About() {
 
-   interface Content {
+
+interface Content {
+
   title: string;
+
   description: string;
+
 }
+
+
 
 interface ContentCardProps {
+
   title: string;
+
   description: string;
+
 }
- 
-const ContentCard : FC<ContentCardProps>  = ({ title, description }) => {
+
+
+
+const Contents: Content[] = [
+
+  {
+
+    title: "Preventive Mental Health Care",
+
+    description:
+
+      "We believe that mental wellness begins before a crisis occurs. Our preventive care focuses on early identification of stressors and developmental challenges in both children and adults.",
+
+  },
+
+  {
+
+    title: "Addiction Counselling",
+
+    description:
+
+      "Recovery is a journey that requires compassion and structure. Our addiction counselling provides a non-judgmental space to address substance use and behavioral dependencies.",
+
+  },
+
+  {
+
+    title: "Collaborative Care",
+
+    description:
+
+      "Mental health does not exist in a vacuum. We adopt a holistic approach by coordinating with other key figures in your life such as pediatricians, school teachers, or other medical specialists.",
+
+  },
+
+  {
+
+    title: "Psychotherapy",
+
+    description:
+
+      "Our clinical psychotherapy services provide deep, evidence-based treatment for diagnosing and managing mental health disorders.",
+
+  },
+
+  {
+
+    title: "Follow Up",
+
+    description:
+
+      "Healing is an ongoing process, not a one-time event. Our follow-up services ensure that progress is maintained long after the initial sessions are complete.",
+
+  },
+
+  {
+
+    title: "Emotional Wellness Training",
+
+    description:
+
+      "Beyond traditional therapy, we offer practical training to build emotional intelligence and regulation skills.",
+
+  },
+
+  {
+
+    title: "Individual and Group Counselling",
+
+    description:
+
+      "Whether you need a private space to be heard or the shared strength of a community, we have a setting for you.",
+
+  },
+
+  {
+
+    title: "Mental Health Organisational Trainings",
+
+    description:
+
+      "We bring mental health expertise into the workplace and educational institutions.",
+
+  },
+
+];
+
+
+
+function ContentCard({ title, description }: ContentCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="card my-10 ">
-      <div className="content ">
-        <svg
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-        </svg>
-        <h1 className="md:text-[20px] text-[18px] mb-6 text-black leading-[100%] italic font-play-italic font-black text-center"> {title} </h1>
-        <p className="para md:text-lg text-[16px] font-pop font-semibold text-left ">
-          {description}
-        </p>
-      </div>
-    </div>
+
+    <motion.article initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: "easeOut" }} whileHover={shouldReduceMotion ? undefined : { y: -5 }} className="flex h-full w-full min-w-0 flex-col rounded-2xl bg-white p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7">
+
+      <h2 className="mb-5 text-center font-play-italic text-lg font-black leading-snug text-black sm:text-xl">
+
+        {title}
+
+      </h2>
+
+
+
+      <p className="font-pop text-base font-semibold leading-relaxed text-gray-700 sm:text-lg">
+
+        {description}
+
+      </p>
+
+    </motion.article>
+
   );
-};
+
+}
 
 
-const Contents : Content[] = [
-   {
-  title: 'Preventive Mental Health Care',
-  description:'We believe that mental wellness begins before a crisis occurs. Our preventive care focuses on early identification of stressors and developmental challenges in both children and adults.', 
-      },
-              {
-  title: 'Addiction Counselling',
-  description:'Recovery is a journey that requires compassion and structure. Our addiction counselling provides a non-judgmental space to address substance use and behavioral dependencies.', 
-      }, 
-        {
-  title: 'Collaborative Care',
-  description:'Mental health does not exist in a vacuum. We adopt a holistic approach by coordinating with other key figures in your life such as pediatricians, school teachers, or other medical specialists.', 
-      }, 
 
-      {
-  title: 'Psychotherapy',
-  description:'Our clinical psychotherapy services provide deep, evidence-based treatment for diagnosing and managing mental health disorders.', 
-      }, 
-  
-      {
-  title: 'Follow Up',
-  description:'Healing is an ongoing process, not a one-time event. Our follow-up services ensure that progress is maintained long after the initial sessions are complete.', 
-      }, 
-         {
-  title: 'Emotional Wellness Training',
-  description:'Beyond traditional therapy, we offer practical training to build emotional intelligence and regulation skills.', 
-      },
-             {
-  title: 'Individual and Group Counselling',
-  description:'Whether you need a private space to be heard or the shared strength of a community, we have a setting for you.', 
-      },
-             {
-  title: 'Mental Health Organisational Trainings',
-  description:'We bring mental health expertise into the workplace and educational institutions', 
-      },
-      
-]
+export default function About() {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+
+    <main className="w-full overflow-x-hidden bg-[#008080]">
+
+      <Navbar />
 
 
-  return(
-        <>
-        <Navbar/>
-<section> 
 
-    <div className="relative w-fit py-12 md:py-20 rounded-3xl -motion-translate-y-in-50 motion-ease-bounc">
-  <div className="max-w-full mx-auto px-6 md:px-12 lg:px-16">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      
-      {/* Image Section */}
-      <div className="relative h-max md:h-162.5 w-full overflow-hidden rounded-2xl shadow-xl">
-        <img 
-          src="/images/belle-smile.webp" 
-          alt="kyw convener"
-          className="w-full h-full md:h-fit md:w-fit"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"></div>
-      </div>
+      {/* MEET THE FOUNDER \*/}
 
-      {/* Text Section */}
-      <div className="flex flex-col">
-        <h3 className="text-[40px] mb-6 text-white leading-[100%]  font-play-italic font-black text-center">
-   MEET <span  className="text-[#32CD32]">THE FOUNDER  </span>
-        </h3>
-        
-        <div className="space-y-6 text-gray-700 leading-relaxed md:text-lg font-medium">
-          <p className=" md:text-lg text-lg  text-white font-semibold font-pop">
+      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-full px-4 py-12 text-white sm:px-6 sm:py-16 md:px-10 lg:px-16 lg:py-20">
 
-Christabel Juan Augustine is a Certified Child Care Psychologist, 
-a clinical and mental health counseling psychologist,
- a strategic manager, an administrator, founder of KYW Wellness Place,
-  the host of "Know Your Worth Series," and the 
-  international coordinator of the Women On The Front Line Network.
-   Her vision reaches out to individuals who have been drained from
-    the past experiences of life's challenges, emotional mental hurts,
-     and frustration, bringing them out to realize their potential, 
-     live healthily, and contribute meaningfully to their communities.
-     
-<br />
-<br />
-Through her weekly broadcast  Know Your Worth Series  
-she reaches out to numerous individuals virtually 
-as she shares practical ways to help individuals discover themselves, 
-take steps to fulfilling destiny, navigate through life with ease, 
-know their worth, and become better versions of themselves.
-She's Happily married to Engr. Uche Juan Augustine and they
-are blessed with four supernatural children.
-          </p>
+        <div className="mx-auto w-full max-w-7xl">
+
+          <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
+
+            {/* Founder image \*/}
+
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-2xl shadow-xl sm:aspect-[5/4] lg:aspect-[4/5]">
+
+              <img
+
+                src="/images/belle-smile.webp"
+
+                alt="Christabel Juan Augustine, founder of KYW Wellness Place"
+
+                className="absolute inset-0 h-full w-full  object-contain md:object-fill"
+
+                fetchPriority="high"
+
+              />
+
+
+
+              <div
+
+                className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+
+                aria-hidden="true"
+
+              />
+
+            </div>
+
+
+
+            {/* Founder biography \*/}
+
+            <div className="flex min-w-0 flex-col">
+
+              <h1 className="mb-6 text-center font-fraunces text-3xl font-black leading-tight text-white sm:text-4xl lg:text-left lg:text-[40px]">
+
+                MEET{" "}
+
+                <span className="text-[#32CD32]">
+
+                  THE FOUNDER
+
+                </span>
+
+              </h1>
+
+
+
+              <div className="space-y-5 font-pop text-base font-semibold leading-relaxed text-white sm:text-lg">
+
+                <p>
+
+                  Christabel Juan Augustine is a Certified Child Care
+
+                  Psychologist, a clinical and mental health counselling
+
+                  psychologist, a strategic manager, an administrator,
+
+                  founder of KYW Wellness Place, the host of "Know
+
+                  Your Worth Series," and the international coordinator
+
+                  of the Women On The Front Line Network.
+
+                </p>
+
+
+
+                <p>
+
+                  Her vision reaches out to individuals who have been
+
+                  drained by past experiences, life's challenges,
+
+                  emotional and mental hurts, and frustration. She helps
+
+                  them realize their potential, live healthily, and
+
+                  contribute meaningfully to their communities.
+
+                </p>
+
+
+
+                <p>
+
+                  Through her weekly broadcast, Know Your Worth Series,
+
+                  she reaches out to numerous individuals virtually as
+
+                  she shares practical ways to help individuals discover
+
+                  themselves, take steps towards fulfilling their
+
+                  destiny, navigate through life with ease, know their
+
+                  worth, and become better versions of themselves.
+
+                </p>
+
+
+
+                <p>
+
+                  She's happily married to Engr. Uche Juan Augustine,
+
+                  and they are blessed with four supernatural children.
+
+                </p>
+
+              </div>
+
+
+
+              {/* Vision \*/}
+
+              <div className="mt-8 border-t border-white/30 pt-7 sm:mt-10 sm:pt-8">
+
+                <h2 className="mb-4 text-center font-fraunces text-3xl font-bold sm:text-4xl lg:text-left">
+
+                  Our Vision
+
+                </h2>
+
+
+
+                <p className="font-pop text-base font-semibold leading-relaxed text-white sm:text-lg">
+
+                  Developing A Healthy Community, One Mind At A Time.
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div className="mt-8 pt-6 border-t border-gray-100">
-<h3 className="text-[40px] text-white font-play-italic font-bold text-center mb-2"> Our vision: </h3>
-          <p className="text-lg md:text-lg font-semibold uppercase tracking-widest text-white font-pop">
-Developing A Healthy Community, One Mind At A Time.
-          </p>
+      </motion.section>
+
+
+
+      {/* WHAT WE DO \*/}
+
+      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-full bg-[#007875] px-4 py-12 sm:px-6 sm:py-16 md:px-10 lg:px-16 lg:py-20">
+
+        <div className="mx-auto w-full max-w-7xl">
+
+          <div className="mb-10 border-t border-white/20 pt-10 text-center sm:mb-14 sm:pt-12">
+
+            <h2 className="mb-6 font-fraunces text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+
+              WHAT WE DO
+
+            </h2>
+
+
+
+            <p className="mx-auto max-w-4xl font-pop text-base font-semibold leading-relaxed text-white sm:text-lg md:text-xl">
+
+              We train, empower, collaborate, counsel and build individuals
+
+              and groups through our day-to-day counselling and therapeutic
+
+              engagements, weekly KYW Series broadcast, mental health
+
+              sensitization tours, master classes on emotional, mental and
+
+              physical health, and yearly mental health campaigns during
+
+              World Mental Health Day.
+
+            </p>
+
+          </div>
+
+
+
+          {/* Responsive services grid \*/}
+
+          <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8 motion-preset-fade motion-duration-1000">
+
+            {Contents.map((item) => (
+
+              <ContentCard
+
+                key={item.title}
+
+                title={item.title}
+
+                description={item.description}
+
+              />
+
+            ))}
+
+          </div>
+
         </div>
-      </div>
 
-    </div>
-  </div>
-</div>
-</section>
+      </motion.section>
 
 
 
-<section
-  className="w-full min-h-screen bg-cover bg-center ">
-      <div className="mt-8 pt-6 border-t border-gray-100"></div>
-<div className="max-w-full mx-auto px-4 py-12 flex flex-col justify-center items-center ">
- <h1 className="text-[30px] md:text-[60px] font-bold text-white leading-snug  font-play-italic  relative top-10"> WHAT WE DO </h1> 
+      {/* PARTNER WITH US \*/}
 
-<p className="md:text-lg text-lg leading-relaxed text-white font-semibold font-pop space-y-6 p-20">
-   We train, empower, collaborate, counsel andbuild
-individuals and groups through our day to day
-counseling & therapeutic engagements,weekly  <br className="md:hidden" /> <br className="md:hidden" />
-KYW Series broadcast, mentalhealth sensitization tours,
-master classes on emotional, mentaland physical
-health and yearly mentalhealth campaigns during
-world mental health day.
-    </p>
+      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }}
 
-</div>
+        className="relative flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-cover bg-center px-5 py-16 text-center sm:min-h-[500px] sm:px-8 md:min-h-[600px] lg:min-h-[700px]"
 
-<div className="flex flex-col items-center gap-10 md:p-10 md:flex-row md:flex-wrap md:justify-center md:gap-12 mb-20 motion-preset-fade motion-duration-8000"> 
-{Contents.map((Contents, index) => (
-<ContentCard
-            key={index}
-            title={Contents.title}
-            description={Contents.description}
-/>
-))}
-   </div>
-</section>
+        style={{
 
+          backgroundImage: "url('/images/join-us.webp')",
 
-<section
-        className="relative w-full h-[90vh] md:w-[1440px] md:h-[817px] flex items-center justify-center text-center bg-cover bg-center md:p-44 "
-        style={{ backgroundImage: "url('/images/join-us.webp')" }}
+        }}
+
       >
-        <div className="absolute inset-0 bg-black/50 w-fit h-fit"></div>
-        <div className="relative max-w-3xl mx-auto text-white px-4">
-          <h1 className="text-[30px] md:text-[40px] font-extrabold mb-6 font-play relative top-52 md:top-0 ">
-        Partner With Us
-          </h1>
-          <p className="text-lg md:text-lg mb-8 relative top-52 md:top-0">
-Your partnership, collaboration and support  <br className="hidden md:block" /> 
-will enable us to train,develop and empower <br className="hidden md:block" />
-more youths,women, men, families & the society.
-<br />
- <br />
+
+        {/* Background overlay \*/}
+
+        <div
+
+          className="absolute inset-0 bg-black/50"
+
+          aria-hidden="true"
+
+        />
+
+
+
+        <div className="relative z-10 mx-auto w-full max-w-3xl text-white">
+
+          <h2 className="mb-6 font-fraunces text-3xl font-extrabold leading-tight sm:text-4xl md:text-[40px]">
+
+            Partner With Us
+
+          </h2>
+
+
+
+          <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed sm:text-lg md:text-xl">
+
+            Your partnership, collaboration and support will enable us
+
+            to train, develop and empower more youths, women, men,
+
+            families and society.
+
           </p>
+
         </div>
-      </section>
 
+      </motion.section>
 
+    </main>
 
-        </>
-    )
- }
+  );
+
+}

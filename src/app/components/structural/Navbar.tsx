@@ -53,7 +53,7 @@ export default function Navbar() {
             <img
               src="/images/kyw-logo.webp"
               alt="KYW Wellness"
-              className="hidden h-20 w-44 object-contain md:block border-[#e8f5e8] bg-white/90"
+              className="hidden h-20 w-44 object-contain md:block  bg-transparent"
             />
           </Link>
 

@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const siteUrl = process.env.PUBLIC_SITE_URL;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
     const reference = `KYW-${caseId}-${Date.now()}`;
 
