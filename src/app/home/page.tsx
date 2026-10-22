@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import LazySection from "../components/LazySection";
 
 import { Suspense } from "react";
+import PartnerCard from "../components/partner-card";
 
 
 
@@ -49,7 +50,7 @@ export default function Home() {
 
 
 
-                <p className="my-7 text-left font-lat text-base font-semibold leading-relaxed text-[#009688] sm:text-lg md:hidden">
+                <p className="my-7 text-left font-lat text-base font-semibold leading-relaxed text-[#009688] sm:text-lg md:hidden ">
 
                   Connect with a licensed therapist anytime, anywhere from the
 
@@ -93,11 +94,11 @@ export default function Home() {
 
           {/* ABOUT US SECTION \*/}
 
-          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[#008080] px-4 py-12 text-white sm:px-6 md:px-10 md:py-16 lg:px-16">
+          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="bg-[linear-gradient(to_left,#041D1B,#009688,#228F22)] px-4 py-12 text-white sm:px-6 md:px-10 md:py-16 lg:px-16">
 
-            <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/20 bg-white/10 py-8 shadow-sm backdrop-blur-md sm:py-10 md:py-14 lg:py-16">
+            <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/20 bg-white/10 py-8 shadow-sm backdrop-blur-md sm:py-10 md:py-14 lg:py-16  ">
 
-              <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 px-5 sm:px-8 md:gap-10 lg:grid-cols-2 lg:gap-14 lg:px-12">
+              <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 px-5 sm:px-8 md:gap-10 lg:grid-cols-2 lg:gap-14 lg:px-12 ">
 
                 {/* Image \*/}
 
@@ -105,17 +106,17 @@ export default function Home() {
 
                   <img
 
-                    src="/images/belle.webp"
+                    src="/images/kyw.webp"
 
                     alt="KYW Wellness Place convener"
 
-                    className="absolute inset-0 h-full w-full object-contain md:object-fill"
+                    className="  object-cover md:object-fit max-md:h-auto max-md:static"
 
                     loading="lazy"
 
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className=" md:absolute inset-0 bg-gradient-to-t from-black/20 to-transparent hidden md:block " />
 
                 </div>
 
@@ -141,7 +142,7 @@ export default function Home() {
 
                       mental, emotional and physical transformation. Whether
 
-                      you are struggling with navigating life's
+                      you are struggling with navigating life&rsquo;s
 
                       challenges, managing your mental health concerns and
 
@@ -281,80 +282,11 @@ export default function Home() {
 
           </motion.section>
 
-
-
           {/* PARTNER WITH US SECTION \*/}
-
-          <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }}
-
-            className="relative flex min-h-[520px] w-full items-center justify-center overflow-hidden bg-cover bg-center px-5 py-16 text-center sm:min-h-[580px] sm:px-8 md:min-h-[680px] md:px-12 lg:min-h-[760px]"
-
-            style={{
-
-              backgroundImage: "url('/images/join-us.webp')",
-
-            }}
-
-          >
-
-            {/* Overlay \*/}
-
-            <div
-
-              className="absolute inset-0 bg-black/50"
-
-              aria-hidden="true"
-
-            />
-
-
-
-            <div className="relative z-10 mx-auto w-full max-w-3xl text-white">
-
-              <h2 className="mb-6 font-fraunces text-3xl font-extrabold leading-tight sm:text-4xl md:text-[40px]">
-
-                Partner With Us
-
-              </h2>
-
-
-
-              <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-
-                Your partnership, collaboration and support will enable us to
-
-                train, develop and empower more youths, women, men, families
-
-                and society.
-
-              </p>
-
-
-
-                       <motion.a whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} href="/book-a-session">
-
-                <motion.button whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }} whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }} animate={shouldReduceMotion ? undefined : { y: [0, -3, 0] }} transition={{ y: { duration: 2.4, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 0.2 } }}
-
-                  className="mt-4 md:inline-flex hidden items-center justify-center rounded-full bg-white px-7 py-3.5 font-bold text-[#009688] hover:text-white transition-colors duration-300 hover:bg-[#32CD32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#008080] md:mt-8 motion-translate-y-loop-50/mirror"
-
-                >
-
-              💚
-
-              Donate 
-
-                </motion.button>
-
-                 </motion.a>
-
-            </div>
-
-          </motion.section>
+<PartnerCard/>
 
         </main>
-
       </Suspense>
-
     </LazySection>
 
   );

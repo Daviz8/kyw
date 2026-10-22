@@ -3,6 +3,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "../components/structural";
+import PartnerCard from "../components/partner-card";
 
 
 
@@ -154,7 +155,7 @@ export default function About() {
 
       {/* MEET THE FOUNDER \*/}
 
-      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-full px-4 py-12 text-white sm:px-6 sm:py-16 md:px-10 lg:px-16 lg:py-20">
+      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-full px-4 py-12 text-white sm:px-6 sm:py-16 md:px-10 lg:px-16 lg:py-20   bg-[linear-gradient(to_left,#041D1B,#009688,#32CD32)]">
 
         <div className="mx-auto w-full max-w-7xl">
 
@@ -166,11 +167,11 @@ export default function About() {
 
               <img
 
-                src="/images/belle-smile.webp"
+                src="/images/belle.webp"
 
                 alt="Christabel Juan Augustine, founder of KYW Wellness Place"
 
-                className="absolute inset-0 h-full w-full  object-contain md:object-fill"
+                className="  w-full object-contain md:object-fill max-md:h-auto max-md:static "
 
                 fetchPriority="high"
 
@@ -364,57 +365,8 @@ export default function About() {
 
       </motion.section>
 
-
-
       {/* PARTNER WITH US \*/}
-
-      <motion.section initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.6, ease: "easeOut" }}
-
-        className="relative flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-cover bg-center px-5 py-16 text-center sm:min-h-[500px] sm:px-8 md:min-h-[600px] lg:min-h-[700px]"
-
-        style={{
-
-          backgroundImage: "url('/images/join-us.webp')",
-
-        }}
-
-      >
-
-        {/* Background overlay \*/}
-
-        <div
-
-          className="absolute inset-0 bg-black/50"
-
-          aria-hidden="true"
-
-        />
-
-
-
-        <div className="relative z-10 mx-auto w-full max-w-3xl text-white">
-
-          <h2 className="mb-6 font-fraunces text-3xl font-extrabold leading-tight sm:text-4xl md:text-[40px]">
-
-            Partner With Us
-
-          </h2>
-
-
-
-          <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed sm:text-lg md:text-xl">
-
-            Your partnership, collaboration and support will enable us
-
-            to train, develop and empower more youths, women, men,
-
-            families and society.
-
-          </p>
-
-        </div>
-
-      </motion.section>
+        <PartnerCard/>
 
     </main>
 
